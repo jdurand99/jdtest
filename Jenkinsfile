@@ -1,8 +1,8 @@
 pipeline {
   agent any
   parameters {
-    booleanParam(defaultValue: True, description: 'repo1?', name: 'repo1')
-    booleanParam(defaultValue: True, description: 'repo2?', name: 'repo2')
+    booleanParam(defaultValue: true, description: 'repo1?', name: 'repo1')
+    booleanParam(defaultValue: true, description: 'repo2?', name: 'repo2')
   }
   stages {
     stage("foo") {
