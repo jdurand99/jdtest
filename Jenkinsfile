@@ -15,7 +15,7 @@ pipeline {
     stage('Checkout') {
       when {
         expression {
-          return checkout
+          return ${params.checkout}
         }
       }
       steps {
