@@ -1,14 +1,28 @@
 pipeline {
   agent any
   stages {
-    stage('') {
-      steps {
-        echo 'Build'
+    stage('error') {
+      parallel {
+        stage('Build1') {
+          steps {
+            echo 'Build'
+          }
+        }
+        stage('Build2') {
+          steps {
+            echo 'Build2'
+          }
+        }
+        stage('Build3') {
+          steps {
+            echo 'Build3'
+          }
+        }
       }
     }
     stage('End') {
       steps {
-        mail(subject: 'End', body: 'test', to: 'jerome.durand99@free.fr')
+        echo 'End'
       }
     }
   }
