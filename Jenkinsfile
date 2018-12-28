@@ -11,6 +11,13 @@ pipeline {
         echo "Repo2: ${params.repo2}"
       }
     }
+    stage('Checkout') {
+      steps {
+        script {
+          git credentialsId: 'github', url: 'https://github.com/jdurand99/repo1.git'
+        }
+      }
+    }   
     stage('Build') {
       parallel {
         stage('Build1') {
