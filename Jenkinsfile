@@ -20,7 +20,7 @@ pipeline {
           
           for (def element = 0; element < repolist.size(); element++) {
                 echo repolist[element]
-                git credentialsId: 'github', url: ${repolist[element]}
+                git credentialsId: 'github', url: repolist[element]
           }
         }
       }
