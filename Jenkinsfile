@@ -21,7 +21,9 @@ pipeline {
       }
     }
     stage('Build boucle') {
-      loop(abc)         
+      steps {
+        echo 'toto'
+      }         
     }
     stage('End') {
       steps {
