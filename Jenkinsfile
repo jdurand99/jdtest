@@ -13,9 +13,6 @@ pipeline {
       }
     }
     stage('Checkout') {
-      when {
-        checkout: true
-      }
       steps {
         script {
           repolist = []
