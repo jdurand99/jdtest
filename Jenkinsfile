@@ -1,13 +1,14 @@
 pipeline {
   agent any
   parameters {
-    string(defaultValue: "TEST", description: 'What environment?', name: 'userFlag')
-    choice(choices: ['US-EAST-1', 'US-WEST-2'], description: 'What AWS region?', name: 'region')
+    booleanParam(defaultValue: True, description: 'repo1?', name: 'repo1')
+    booleanParam(defaultValue: True, description: 'repo2?', name: 'repo2')
   }
   stages {
     stage("foo") {
       steps {
-        echo "flag: ${params.userFlag}"
+        echo "Repo1: ${params.repo1}"
+        echo "Repo2: ${params.repo2}"
       }
     }
     stage('Build') {
