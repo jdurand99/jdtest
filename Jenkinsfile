@@ -14,7 +14,14 @@ pipeline {
     stage('Checkout') {
       steps {
         script {
-          git credentialsId: 'github', url: 'https://github.com/jdurand99/repo1.git'
+          repolist = []
+          repolist += "repo1"
+          repolist += "repo2"
+          
+          for (def element = 0; element < repolist.size(); element++) {
+                echo repolist[element]
+                git credentialsId: 'github', url: 'https://github.com/jdurand99/${repolist[element]}.git'
+          }
         }
       }
     }   
