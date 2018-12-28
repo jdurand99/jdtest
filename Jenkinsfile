@@ -1,7 +1,4 @@
 pipeline {
-
- 
-  
   agent any
   stages {
     stage('Build') {
@@ -24,18 +21,31 @@ pipeline {
       }
     }
     stage('Build boucle') {
-      steps {
-        script {
-           MYLIST = []
-           MYLIST += "param-one"
-           MYLIST += "param-two"
-           MYLIST += "param-three"
-           MYLIST += "param-four"
-           MYLIST += "param-five"
+      parallel {
+        stage('Build boucle') {
+          steps {
+            script {
+              MYLIST = []
+              MYLIST += "param-one"
+              MYLIST += "param-two"
+              MYLIST += "param-three"
+              MYLIST += "param-four"
+              MYLIST += "param-five"
 
-           for (def element = 0; element < MYLIST.size(); element++) {
-             echo MYLIST[element]
-           }
+              for (def element = 0; element < MYLIST.size(); element++) {
+                echo MYLIST[element]
+              }
+            }
+
+          }
+        }
+        stage('script toto') {
+          steps {
+            script {
+              echo 'toto'
+            }
+
+          }
         }
       }
     }
@@ -46,4 +56,3 @@ pipeline {
     }
   }
 }
-
