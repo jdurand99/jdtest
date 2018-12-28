@@ -45,8 +45,5 @@ pipeline {
       }
     }
   }
-  environment {
-    Modules = 'mdd1 mdd2'
-  }
 }
 
