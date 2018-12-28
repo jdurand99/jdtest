@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('error') {
+    stage('Build') {
       parallel {
         stage('Build1') {
           steps {
@@ -19,6 +19,13 @@ pipeline {
           }
         }
       }
+    }
+    stage('Build boucle') {
+      steps {
+		for (i in [ 'a', 'b', 'c' ]) {
+		        echo i
+		    }
+	    }	         
     }
     stage('End') {
       steps {
