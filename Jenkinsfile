@@ -1,12 +1,6 @@
 pipeline {
 
-  abcs = ['a', 'b', 'c']
-
-  def loop(list) {
-    for (i in [list]) {
-      echo i
-   }
-  }
+ 
   
   agent any
   stages {
@@ -30,6 +24,22 @@ pipeline {
       }
     }
     stage('Build boucle') {
+      steps {
+        script {
+           MYLIST = []
+           MYLIST += "param-one"
+           MYLIST += "param-two"
+           MYLIST += "param-three"
+           MYLIST += "param-four"
+           MYLIST += "param-five"
+
+           for (def element = 0; element < MYLIST.size(); element++) {
+             echo MYLIST[element]
+           }
+        }
+      }
+    }
+  }
       loop(abc)         
     }
     stage('End') {
