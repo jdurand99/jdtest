@@ -14,7 +14,9 @@ pipeline {
     }
     stage('Checkout') {
       when {
-        checkout: true
+        expression {
+          checkout
+        }
       }
       steps {
         script {
