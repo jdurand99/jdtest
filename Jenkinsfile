@@ -39,9 +39,6 @@ pipeline {
         }
       }
     }
-  }
-      loop(abc)         
-    }
     stage('End') {
       steps {
         echo 'End'
