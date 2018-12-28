@@ -3,6 +3,7 @@ pipeline {
   parameters {
     booleanParam(defaultValue: true, description: 'repo1?', name: 'repo1')
     booleanParam(defaultValue: true, description: 'repo2?', name: 'repo2')
+    booleanParam(defaultValue: true, description: 'checkout?', name: 'checkout')
   }
   stages {
     stage("foo") {
@@ -12,6 +13,9 @@ pipeline {
       }
     }
     stage('Checkout') {
+      when {
+        checkout: true
+      }
       steps {
         script {
           repolist = []
