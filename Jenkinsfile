@@ -5,6 +5,11 @@ pipeline {
     choice(choices: ['US-EAST-1', 'US-WEST-2'], description: 'What AWS region?', name: 'region')
   }
   stages {
+    stage("foo") {
+      steps {
+        echo "flag: ${params.userFlag}"
+      }
+    }
     stage('Build') {
       parallel {
         stage('Build1') {
