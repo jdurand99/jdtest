@@ -1,4 +1,13 @@
 pipeline {
+
+  abcs = ['a', 'b', 'c']
+
+  def loop(list) {
+    for (i in [list]) {
+      echo i
+   }
+  }
+  
   agent any
   stages {
     stage('Build') {
@@ -21,9 +30,7 @@ pipeline {
       }
     }
     stage('Build boucle') {
-      steps {
-        echo 'toto'
-      }         
+      loop(abc)         
     }
     stage('End') {
       steps {
@@ -36,8 +43,3 @@ pipeline {
   }
 }
 
-def loop(list) {
-  for (i in [list]) {
-    echo i
-  }
-}
