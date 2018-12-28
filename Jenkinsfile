@@ -21,9 +21,7 @@ pipeline {
       }
     }
     stage('Build boucle') {
-		for (i in [ 'a', 'b', 'c' ]) {
-		        echo i
-		    }
+      loop(abc)         
     }
     stage('End') {
       steps {
@@ -33,5 +31,11 @@ pipeline {
   }
   environment {
     Modules = 'mdd1 mdd2'
+  }
+}
+
+def loop(list) {
+  for (i in [list]) {
+    echo i
   }
 }
