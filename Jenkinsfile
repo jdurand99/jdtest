@@ -15,12 +15,12 @@ pipeline {
       steps {
         script {
           repolist = []
-          repolist += "repo1"
-          repolist += "repo2"
+          repolist += "https://github.com/jdurand99/repo1.git"
+          repolist += "https://github.com/jdurand99/repo2.git"
           
           for (def element = 0; element < repolist.size(); element++) {
                 echo repolist[element]
-                git credentialsId: 'github', url: 'https://github.com/jdurand99/${repolist[element]}.git'
+                git credentialsId: 'github', url: ${repolist[element]}
           }
         }
       }
