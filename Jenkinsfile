@@ -21,11 +21,9 @@ pipeline {
       }
     }
     stage('Build boucle') {
-      steps {
 		for (i in [ 'a', 'b', 'c' ]) {
 		        echo i
 		    }
-	    }	         
     }
     stage('End') {
       steps {
